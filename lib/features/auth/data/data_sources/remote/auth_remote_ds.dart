@@ -5,4 +5,7 @@ abstract class AuthRemoteDS {
   Future<AuthModel> signUp({SignUpRequestModel? request});
 
   Future<AuthModel> login(String email, String password);
+
+  Future<AuthModel> profile({SignUpRequestModel? request});
+
 }

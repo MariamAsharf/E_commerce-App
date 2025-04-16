@@ -6,33 +6,37 @@ import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dar
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'cart_event.dart';
-
-part 'cart_state.dart';
-
 part 'cart_bloc.freezed.dart';
+part 'cart_event.dart';
+part 'cart_state.dart';
 
 @injectable
 class CartBloc extends Bloc<CartEvent, CartState> {
   GetCartUseCase getCartUseCase;
 
   CartBloc(this.getCartUseCase) : super(const CartState.initial()) {
-    on<GetCartEvent>((event, emit) async {
-      emit(state.copyWith(getCartState: RequestState.loading));
-      // getCategoriesUseCase.call();
-
-      var result = await getCartUseCase();
-      result.fold(
-        (l) {
-          emit(state.copyWith(getCartState: RequestState.error, failures: l));
-        },
-        (r) {
-          emit(state.copyWith(
-            getCartState: RequestState.success,
-            model: r,
-          ));
-        },
-      );
-    });
+    on<GetCartEvent>(
+      (event, emit) async {
+        emit(
+          state.copyWith(getCartState: RequestState.loading),
+        );
+        var result = await getCartUseCase.call();
+        result.fold(
+          (l) {
+            emit(
+              state.copyWith(getCartState: RequestState.error, failures: l),
+            );
+          },
+          (r) {
+            emit(
+              state.copyWith(
+                getCartState: RequestState.success,
+                model: r,
+              ),
+            );
+          },
+        );
+      },
+    );
   }
 }

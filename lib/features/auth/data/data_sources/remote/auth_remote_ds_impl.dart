@@ -29,4 +29,13 @@ class AuthRemoteDSImpl implements AuthRemoteDS {
     AuthModel authModel = AuthModel.fromJson(result.data);
     return authModel;
   }
+
+  @override
+  Future<AuthModel> profile({SignUpRequestModel? request}) async{
+    var result =
+        await apiManager.postRequest(EndPoints.signUp, request!.toJson());
+
+    AuthModel authModel = AuthModel.fromJson(result.data);
+    return authModel;
+  }
 }

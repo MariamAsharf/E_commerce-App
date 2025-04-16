@@ -9,4 +9,7 @@ abstract class AuthRepo {
 
   Future<Either<RouteFailures, AuthModel>> login(
       {required String email, required String password});
+
+  Future<Either<RouteFailures, AuthModel>> profile(
+      {required SignUpRequestModel request});
 }

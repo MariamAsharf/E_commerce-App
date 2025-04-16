@@ -20,39 +20,39 @@ class CartScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => getIt<CartBloc>()..add(GetCartEvent()),
       child: BlocConsumer<CartBloc, CartState>(
-          listener: (context, state) {
-            if (state.getCartState == RequestState.loading) {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Center(child: CircularProgressIndicator()),
-                  backgroundColor: Colors.transparent,
-                ),
-              );
-            } else if (state.getCartState == RequestState.error) {
-              showDialog(
-                context: context,
-                builder: (context) => AlertDialog(
-                  title: Text("Error"),
-                  content: Text(state.failures?.message ?? ""),
-                  actions: [
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                          Navigator.pop(context);
-                        },
-                        child: Text("Ok"))
-                  ],
-                ),
-              );
-            } else if (state.getCartState == RequestState.success) {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
-                Routes.cartRoute,
-                    (route) => false,
-              );
-            }
-          },
+        listener: (context, state) {
+          if (state.getCartState == RequestState.loading) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Center(child: CircularProgressIndicator()),
+                backgroundColor: Colors.transparent,
+              ),
+            );
+          } else if (state.getCartState == RequestState.error) {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text("Error"),
+                content: Text(state.failures?.message ?? ""),
+                actions: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                      },
+                      child: Text("Ok"))
+                ],
+              ),
+            );
+          } else if (state.getCartState == RequestState.success) {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              Routes.cartRoute,
+              (route) => false,
+            );
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -86,7 +86,7 @@ class CartScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    // the list of cart items ===============
+                    // the list of cart items ===========
                     child: ListView.separated(
                       itemBuilder: (context, index) => CartItemWidget(
                         imagePath: state.model?.data?.products?[index].product

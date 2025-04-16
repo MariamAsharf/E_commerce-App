@@ -14,3 +14,9 @@ class OnLoginEvent extends AuthEvent {
 
   OnLoginEvent(this.email, this.password);
 }
+
+class ProfileEvent extends AuthEvent {
+  SignUpRequestModel model;
+
+  ProfileEvent(this.model);
+}

@@ -7,5 +7,5 @@ class DummyData extends Equatable {
   DummyData(this.id, this.name);
 
   @override
-  List<Object?> get props => [id,];
+  List<Object?> get props => [id];
 }

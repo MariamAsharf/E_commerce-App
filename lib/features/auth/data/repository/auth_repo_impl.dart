@@ -20,7 +20,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       var result = await authRemoteDS.signUp(request: request);
 
-     await SharedPrefs.set<String>("token", result.token ?? "");
+      await SharedPrefs.set<String>("token", result.token ?? "");
       return Left(result);
     } catch (e) {
       return Right(RemoteFailures("Auth Error"));
@@ -38,6 +38,20 @@ class AuthRepoImpl implements AuthRepo {
       return Right(result);
     } catch (e) {
       return Left(RemoteFailures("Auth Error"));
+    }
+  }
+
+  @override
+  Future<Either<RouteFailures, AuthModel>> profile(
+      {required SignUpRequestModel request}) async {
+    try {
+      var result = await authRemoteDS.signUp(request: request);
+
+      await SharedPrefs.set<String>("token", result.token ?? "");
+      return Right(result);
+    } catch (e) {
+      return left(RemoteFailures("Profile Error"));
+      rethrow;
     }
   }
 }
