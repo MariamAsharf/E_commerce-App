@@ -56,7 +56,7 @@ class CustomProductWidget extends StatelessWidget {
       onTap: () => Navigator.pushNamed(context, Routes.productDetails),
       child: Container(
         width: width * 0.4,
-        height: height * 0.3,
+        height: height * 0.1,
         decoration: BoxDecoration(
           border: Border.all(
             color: ColorManager.primary.withOpacity(0.3),
@@ -73,7 +73,6 @@ class CustomProductWidget extends StatelessWidget {
                 alignment: AlignmentDirectional.center,
                 children: [
                   // Not working with the lastest flutter version
-
                   CachedNetworkImage(
                     imageUrl: image,
                     height: height * 0.15,
@@ -84,25 +83,12 @@ class CustomProductWidget extends StatelessWidget {
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
-                  // Image.network(
-                  //   image,
-                  //   fit: BoxFit.cover,
-                  // ),
-                  // ClipRRect(
-                  //   borderRadius:
-                  //       BorderRadius.vertical(top: Radius.circular(14.r)),
-                  //   child: Image.asset(
-                  //     image,
-                  //     fit: BoxFit.cover,
-                  //     width: width,
-                  //   ),
-                  // ),
                   Positioned(
                       top: height * 0.01,
                       right: width * 0.02,
                       child: HeartButton(onTap: () {
                         BlocProvider.of<ProductBloc>(context)
-                            .add(AddToFavouritesEvent(prodId: id));
+                            .add(GetFavouritesEvent(prodId: id));
                       })),
                 ],
               ),
@@ -121,7 +107,6 @@ class CustomProductWidget extends StatelessWidget {
                         fontSize: 14.sp,
                       ),
                     ),
-                    SizedBox(height: height * 0.002),
                     Text(
                       truncateDescription(description),
                       style: getRegularStyle(
@@ -129,7 +114,6 @@ class CustomProductWidget extends StatelessWidget {
                         fontSize: 14.sp,
                       ),
                     ),
-                    SizedBox(height: height * 0.01),
                     SizedBox(
                       width: width * 0.3,
                       child: Row(
@@ -177,11 +161,12 @@ class CustomProductWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(100),
                           child: InkWell(
                             onTap: () {
-                              BlocProvider.of<ProductBloc>(context)
-                                  .add(AddToCartEvent(prodId: id));
+                              BlocProvider.of<ProductBloc>(context).add(
+                                AddToCartEvent(prodId: id),
+                              );
                             },
                             child: Container(
-                              height: height * 0.036,
+                              height: height * 0.029,
                               width: width * 0.08,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,

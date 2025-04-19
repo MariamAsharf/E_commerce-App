@@ -1,8 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:eCommerce_app/core/failuers/failuers.dart';
 import 'package:eCommerce_app/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/ProductModel.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/cart_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/favourite_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/product_model.dart';
 import 'package:eCommerce_app/features/products_screen/domain/usecases/add_to_cart.dart';
 import 'package:eCommerce_app/features/products_screen/domain/usecases/get_favourite_use_case.dart';
 import 'package:eCommerce_app/features/products_screen/domain/usecases/get_product_usecase.dart';
@@ -21,9 +22,9 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
   AddToCartUseCase addToCartUseCase;
 
-  AddToFavouriteUseCase addToFavouriteUseCase;
+  GetFavouriteUseCase getFavouriteUseCase;
 
-  ProductBloc(this.getProductsUseCase, this.addToCartUseCase , this.addToFavouriteUseCase)
+  ProductBloc(this.getProductsUseCase, this.addToCartUseCase , this.getFavouriteUseCase)
       : super(const ProductState.initial()) {
     on<GetProductsEvent>((event, emit) async {
       emit(state.copyWith(getProductsState: RequestState.loading));
@@ -64,20 +65,20 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         },
       );
     });
-    on<AddToFavouritesEvent>((event, emit) async {
+    on<GetFavouritesEvent>((event, emit) async {
       emit(state.copyWith(addToCartState: RequestState.loading));
       // getCategoriesUseCase.call();
 
-      var result = await addToFavouriteUseCase(id: event.prodId);
+      var result = await getFavouriteUseCase(id: event.prodId);
       result.fold(
             (l) {
           print(l.message);
           emit(state.copyWith(
-              addToFavouriteState: RequestState.error, favouriteFailures: l));
+              getFavouriteState: RequestState.error, favouriteFailures: l));
         },
             (r) {
           emit(state.copyWith(
-            addToFavouriteState: RequestState.success,
+            getFavouriteState: RequestState.success,
             favouritemodel: r,
           ));
         },

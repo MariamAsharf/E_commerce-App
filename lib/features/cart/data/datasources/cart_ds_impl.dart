@@ -2,7 +2,7 @@ import 'package:eCommerce_app/core/api/api_manager.dart';
 import 'package:eCommerce_app/core/resources/chace_helper.dart';
 import 'package:eCommerce_app/core/resources/endpoints.dart';
 import 'package:eCommerce_app/features/cart/data/datasources/cart_ds.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/cart_model.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: CartDS)

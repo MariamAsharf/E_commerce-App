@@ -4,8 +4,9 @@ import 'package:eCommerce_app/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:eCommerce_app/features/cart/domain/usecases/get_cart_use_case.dart';
 import 'package:eCommerce_app/features/main_layout/home/data/models/CategoriesModel.dart';
 import 'package:eCommerce_app/features/main_layout/home/domain/usecases/get_categories_use_case.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/ProductModel.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/cart_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/favourite_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/product_model.dart';
 import 'package:eCommerce_app/features/products_screen/domain/usecases/get_favourite_use_case.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -20,10 +21,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   GetCartUseCase getCartUseCase;
 
-  AddToFavouriteUseCase addToFavouriteUseCase;
+  GetFavouriteUseCase getFavouriteUseCase;
 
   HomeBloc(this.getCategoriesUseCase, this.getCartUseCase,
-      this.addToFavouriteUseCase)
+      this.getFavouriteUseCase)
       : super(const HomeState.initial()) {
     on<HomeEvent>((event, emit) async {
       await event.when(
@@ -50,7 +51,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit(state.copyWith(getFavouriteState: RequestState.loading));
           // getCategoriesUseCase.call();
 
-          var result = await addToFavouriteUseCase();
+          var result = await getFavouriteUseCase();
           result.fold(
             (l) {
               emit(state.copyWith(

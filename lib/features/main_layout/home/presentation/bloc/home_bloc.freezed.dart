@@ -568,7 +568,7 @@ mixin _$HomeState {
   RequestState get getFavouriteState => throw _privateConstructorUsedError;
   CategoriesModel? get model => throw _privateConstructorUsedError;
   CartModel? get cartModel => throw _privateConstructorUsedError;
-  ProductModel? get favouriteModel => throw _privateConstructorUsedError;
+  FavouriteModel? get favouriteModel => throw _privateConstructorUsedError;
   RouteFailures? get failures => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -578,7 +578,7 @@ mixin _$HomeState {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)
         initial,
   }) =>
@@ -591,7 +591,7 @@ mixin _$HomeState {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)?
         initial,
   }) =>
@@ -604,7 +604,7 @@ mixin _$HomeState {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)?
         initial,
     required TResult orElse(),
@@ -645,7 +645,7 @@ abstract class $HomeStateCopyWith<$Res> {
       RequestState getFavouriteState,
       CategoriesModel? model,
       CartModel? cartModel,
-      ProductModel? favouriteModel,
+      FavouriteModel? favouriteModel,
       RouteFailures? failures});
 }
 
@@ -696,7 +696,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       favouriteModel: freezed == favouriteModel
           ? _value.favouriteModel
           : favouriteModel // ignore: cast_nullable_to_non_nullable
-              as ProductModel?,
+              as FavouriteModel?,
       failures: freezed == failures
           ? _value.failures
           : failures // ignore: cast_nullable_to_non_nullable
@@ -719,7 +719,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       RequestState getFavouriteState,
       CategoriesModel? model,
       CartModel? cartModel,
-      ProductModel? favouriteModel,
+      FavouriteModel? favouriteModel,
       RouteFailures? failures});
 }
 
@@ -768,7 +768,7 @@ class __$$InitialImplCopyWithImpl<$Res>
       favouriteModel: freezed == favouriteModel
           ? _value.favouriteModel
           : favouriteModel // ignore: cast_nullable_to_non_nullable
-              as ProductModel?,
+              as FavouriteModel?,
       failures: freezed == failures
           ? _value.failures
           : failures // ignore: cast_nullable_to_non_nullable
@@ -803,7 +803,7 @@ class _$InitialImpl implements _Initial {
   @override
   final CartModel? cartModel;
   @override
-  final ProductModel? favouriteModel;
+  final FavouriteModel? favouriteModel;
   @override
   final RouteFailures? failures;
 
@@ -853,7 +853,7 @@ class _$InitialImpl implements _Initial {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)
         initial,
   }) {
@@ -870,7 +870,7 @@ class _$InitialImpl implements _Initial {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)?
         initial,
   }) {
@@ -887,7 +887,7 @@ class _$InitialImpl implements _Initial {
             RequestState getFavouriteState,
             CategoriesModel? model,
             CartModel? cartModel,
-            ProductModel? favouriteModel,
+            FavouriteModel? favouriteModel,
             RouteFailures? failures)?
         initial,
     required TResult orElse(),
@@ -935,7 +935,7 @@ abstract class _Initial implements HomeState {
       final RequestState getFavouriteState,
       final CategoriesModel? model,
       final CartModel? cartModel,
-      final ProductModel? favouriteModel,
+      final FavouriteModel? favouriteModel,
       final RouteFailures? failures}) = _$InitialImpl;
 
   @override
@@ -949,7 +949,7 @@ abstract class _Initial implements HomeState {
   @override
   CartModel? get cartModel;
   @override
-  ProductModel? get favouriteModel;
+  FavouriteModel? get favouriteModel;
   @override
   RouteFailures? get failures;
 

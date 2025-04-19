@@ -5,9 +5,9 @@ class ProductState with _$ProductState {
   const factory ProductState.initial({
     @Default(RequestState.init) RequestState getProductsState,
     @Default(RequestState.init) RequestState addToCartState,
-    @Default(RequestState.init) RequestState addToFavouriteState,
+    @Default(RequestState.init) RequestState getFavouriteState,
     ProductModel? model,
-    ProductModel? favouritemodel,
+    FavouriteModel? favouritemodel,
     CartModel? cartModel,
     RouteFailures? failures,
     RouteFailures? cartFailures,

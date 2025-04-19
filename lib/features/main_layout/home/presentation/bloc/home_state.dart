@@ -9,7 +9,7 @@ class HomeState with _$HomeState {
 
     CategoriesModel? model,
     CartModel? cartModel,
-    ProductModel? favouriteModel,
+    FavouriteModel? favouriteModel,
 
     RouteFailures? failures,
   }) = _Initial;

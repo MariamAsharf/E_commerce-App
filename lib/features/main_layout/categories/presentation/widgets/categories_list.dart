@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CategoriesList extends StatelessWidget {
-  const CategoriesList({super.key});
+  int index;
+   CategoriesList({super.key , required this.index});
 
   // Index of the currently selected category
 

@@ -21,7 +21,7 @@ mixin _$ProductEvent {
     required TResult Function() started,
     required TResult Function(String? subCatId) getProduct,
     required TResult Function(String prodId) addToCart,
-    required TResult Function(String prodId) addToFavourite,
+    required TResult Function(String? prodId) getFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,7 +29,7 @@ mixin _$ProductEvent {
     TResult? Function()? started,
     TResult? Function(String? subCatId)? getProduct,
     TResult? Function(String prodId)? addToCart,
-    TResult? Function(String prodId)? addToFavourite,
+    TResult? Function(String? prodId)? getFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,7 +37,7 @@ mixin _$ProductEvent {
     TResult Function()? started,
     TResult Function(String? subCatId)? getProduct,
     TResult Function(String prodId)? addToCart,
-    TResult Function(String prodId)? addToFavourite,
+    TResult Function(String? prodId)? getFavourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ mixin _$ProductEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetProductsEvent value) getProduct,
     required TResult Function(AddToCartEvent value) addToCart,
-    required TResult Function(AddToFavouritesEvent value) addToFavourite,
+    required TResult Function(GetFavouritesEvent value) getFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$ProductEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetProductsEvent value)? getProduct,
     TResult? Function(AddToCartEvent value)? addToCart,
-    TResult? Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult? Function(GetFavouritesEvent value)? getFavourite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$ProductEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetProductsEvent value)? getProduct,
     TResult Function(AddToCartEvent value)? addToCart,
-    TResult Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult Function(GetFavouritesEvent value)? getFavourite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,7 +133,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() started,
     required TResult Function(String? subCatId) getProduct,
     required TResult Function(String prodId) addToCart,
-    required TResult Function(String prodId) addToFavourite,
+    required TResult Function(String? prodId) getFavourite,
   }) {
     return started();
   }
@@ -144,7 +144,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? started,
     TResult? Function(String? subCatId)? getProduct,
     TResult? Function(String prodId)? addToCart,
-    TResult? Function(String prodId)? addToFavourite,
+    TResult? Function(String? prodId)? getFavourite,
   }) {
     return started?.call();
   }
@@ -155,7 +155,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? started,
     TResult Function(String? subCatId)? getProduct,
     TResult Function(String prodId)? addToCart,
-    TResult Function(String prodId)? addToFavourite,
+    TResult Function(String? prodId)? getFavourite,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -170,7 +170,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(GetProductsEvent value) getProduct,
     required TResult Function(AddToCartEvent value) addToCart,
-    required TResult Function(AddToFavouritesEvent value) addToFavourite,
+    required TResult Function(GetFavouritesEvent value) getFavourite,
   }) {
     return started(this);
   }
@@ -181,7 +181,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Started value)? started,
     TResult? Function(GetProductsEvent value)? getProduct,
     TResult? Function(AddToCartEvent value)? addToCart,
-    TResult? Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult? Function(GetFavouritesEvent value)? getFavourite,
   }) {
     return started?.call(this);
   }
@@ -192,7 +192,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(GetProductsEvent value)? getProduct,
     TResult Function(AddToCartEvent value)? addToCart,
-    TResult Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult Function(GetFavouritesEvent value)? getFavourite,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -279,7 +279,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     required TResult Function() started,
     required TResult Function(String? subCatId) getProduct,
     required TResult Function(String prodId) addToCart,
-    required TResult Function(String prodId) addToFavourite,
+    required TResult Function(String? prodId) getFavourite,
   }) {
     return getProduct(subCatId);
   }
@@ -290,7 +290,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult? Function()? started,
     TResult? Function(String? subCatId)? getProduct,
     TResult? Function(String prodId)? addToCart,
-    TResult? Function(String prodId)? addToFavourite,
+    TResult? Function(String? prodId)? getFavourite,
   }) {
     return getProduct?.call(subCatId);
   }
@@ -301,7 +301,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult Function()? started,
     TResult Function(String? subCatId)? getProduct,
     TResult Function(String prodId)? addToCart,
-    TResult Function(String prodId)? addToFavourite,
+    TResult Function(String? prodId)? getFavourite,
     required TResult orElse(),
   }) {
     if (getProduct != null) {
@@ -316,7 +316,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetProductsEvent value) getProduct,
     required TResult Function(AddToCartEvent value) addToCart,
-    required TResult Function(AddToFavouritesEvent value) addToFavourite,
+    required TResult Function(GetFavouritesEvent value) getFavourite,
   }) {
     return getProduct(this);
   }
@@ -327,7 +327,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetProductsEvent value)? getProduct,
     TResult? Function(AddToCartEvent value)? addToCart,
-    TResult? Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult? Function(GetFavouritesEvent value)? getFavourite,
   }) {
     return getProduct?.call(this);
   }
@@ -338,7 +338,7 @@ class _$GetProductsEventImpl implements GetProductsEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetProductsEvent value)? getProduct,
     TResult Function(AddToCartEvent value)? addToCart,
-    TResult Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult Function(GetFavouritesEvent value)? getFavourite,
     required TResult orElse(),
   }) {
     if (getProduct != null) {
@@ -433,7 +433,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     required TResult Function() started,
     required TResult Function(String? subCatId) getProduct,
     required TResult Function(String prodId) addToCart,
-    required TResult Function(String prodId) addToFavourite,
+    required TResult Function(String? prodId) getFavourite,
   }) {
     return addToCart(prodId);
   }
@@ -444,7 +444,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult? Function()? started,
     TResult? Function(String? subCatId)? getProduct,
     TResult? Function(String prodId)? addToCart,
-    TResult? Function(String prodId)? addToFavourite,
+    TResult? Function(String? prodId)? getFavourite,
   }) {
     return addToCart?.call(prodId);
   }
@@ -455,7 +455,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult Function()? started,
     TResult Function(String? subCatId)? getProduct,
     TResult Function(String prodId)? addToCart,
-    TResult Function(String prodId)? addToFavourite,
+    TResult Function(String? prodId)? getFavourite,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -470,7 +470,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetProductsEvent value) getProduct,
     required TResult Function(AddToCartEvent value) addToCart,
-    required TResult Function(AddToFavouritesEvent value) addToFavourite,
+    required TResult Function(GetFavouritesEvent value) getFavourite,
   }) {
     return addToCart(this);
   }
@@ -481,7 +481,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetProductsEvent value)? getProduct,
     TResult? Function(AddToCartEvent value)? addToCart,
-    TResult? Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult? Function(GetFavouritesEvent value)? getFavourite,
   }) {
     return addToCart?.call(this);
   }
@@ -492,7 +492,7 @@ class _$AddToCartEventImpl implements AddToCartEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetProductsEvent value)? getProduct,
     TResult Function(AddToCartEvent value)? addToCart,
-    TResult Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult Function(GetFavouritesEvent value)? getFavourite,
     required TResult orElse(),
   }) {
     if (addToCart != null) {
@@ -516,20 +516,20 @@ abstract class AddToCartEvent implements ProductEvent {
 }
 
 /// @nodoc
-abstract class _$$AddToFavouritesEventImplCopyWith<$Res> {
-  factory _$$AddToFavouritesEventImplCopyWith(_$AddToFavouritesEventImpl value,
-          $Res Function(_$AddToFavouritesEventImpl) then) =
-      __$$AddToFavouritesEventImplCopyWithImpl<$Res>;
+abstract class _$$GetFavouritesEventImplCopyWith<$Res> {
+  factory _$$GetFavouritesEventImplCopyWith(_$GetFavouritesEventImpl value,
+          $Res Function(_$GetFavouritesEventImpl) then) =
+      __$$GetFavouritesEventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String prodId});
+  $Res call({String? prodId});
 }
 
 /// @nodoc
-class __$$AddToFavouritesEventImplCopyWithImpl<$Res>
-    extends _$ProductEventCopyWithImpl<$Res, _$AddToFavouritesEventImpl>
-    implements _$$AddToFavouritesEventImplCopyWith<$Res> {
-  __$$AddToFavouritesEventImplCopyWithImpl(_$AddToFavouritesEventImpl _value,
-      $Res Function(_$AddToFavouritesEventImpl) _then)
+class __$$GetFavouritesEventImplCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$GetFavouritesEventImpl>
+    implements _$$GetFavouritesEventImplCopyWith<$Res> {
+  __$$GetFavouritesEventImplCopyWithImpl(_$GetFavouritesEventImpl _value,
+      $Res Function(_$GetFavouritesEventImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ProductEvent
@@ -537,35 +537,35 @@ class __$$AddToFavouritesEventImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? prodId = null,
+    Object? prodId = freezed,
   }) {
-    return _then(_$AddToFavouritesEventImpl(
-      prodId: null == prodId
+    return _then(_$GetFavouritesEventImpl(
+      prodId: freezed == prodId
           ? _value.prodId
           : prodId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
 
-class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
-  const _$AddToFavouritesEventImpl({required this.prodId});
+class _$GetFavouritesEventImpl implements GetFavouritesEvent {
+  const _$GetFavouritesEventImpl({this.prodId});
 
   @override
-  final String prodId;
+  final String? prodId;
 
   @override
   String toString() {
-    return 'ProductEvent.addToFavourite(prodId: $prodId)';
+    return 'ProductEvent.getFavourite(prodId: $prodId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddToFavouritesEventImpl &&
+            other is _$GetFavouritesEventImpl &&
             (identical(other.prodId, prodId) || other.prodId == prodId));
   }
 
@@ -577,10 +577,9 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddToFavouritesEventImplCopyWith<_$AddToFavouritesEventImpl>
-      get copyWith =>
-          __$$AddToFavouritesEventImplCopyWithImpl<_$AddToFavouritesEventImpl>(
-              this, _$identity);
+  _$$GetFavouritesEventImplCopyWith<_$GetFavouritesEventImpl> get copyWith =>
+      __$$GetFavouritesEventImplCopyWithImpl<_$GetFavouritesEventImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,9 +587,9 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     required TResult Function() started,
     required TResult Function(String? subCatId) getProduct,
     required TResult Function(String prodId) addToCart,
-    required TResult Function(String prodId) addToFavourite,
+    required TResult Function(String? prodId) getFavourite,
   }) {
-    return addToFavourite(prodId);
+    return getFavourite(prodId);
   }
 
   @override
@@ -599,9 +598,9 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     TResult? Function()? started,
     TResult? Function(String? subCatId)? getProduct,
     TResult? Function(String prodId)? addToCart,
-    TResult? Function(String prodId)? addToFavourite,
+    TResult? Function(String? prodId)? getFavourite,
   }) {
-    return addToFavourite?.call(prodId);
+    return getFavourite?.call(prodId);
   }
 
   @override
@@ -610,11 +609,11 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     TResult Function()? started,
     TResult Function(String? subCatId)? getProduct,
     TResult Function(String prodId)? addToCart,
-    TResult Function(String prodId)? addToFavourite,
+    TResult Function(String? prodId)? getFavourite,
     required TResult orElse(),
   }) {
-    if (addToFavourite != null) {
-      return addToFavourite(prodId);
+    if (getFavourite != null) {
+      return getFavourite(prodId);
     }
     return orElse();
   }
@@ -625,9 +624,9 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     required TResult Function(_Started value) started,
     required TResult Function(GetProductsEvent value) getProduct,
     required TResult Function(AddToCartEvent value) addToCart,
-    required TResult Function(AddToFavouritesEvent value) addToFavourite,
+    required TResult Function(GetFavouritesEvent value) getFavourite,
   }) {
-    return addToFavourite(this);
+    return getFavourite(this);
   }
 
   @override
@@ -636,9 +635,9 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     TResult? Function(_Started value)? started,
     TResult? Function(GetProductsEvent value)? getProduct,
     TResult? Function(AddToCartEvent value)? addToCart,
-    TResult? Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult? Function(GetFavouritesEvent value)? getFavourite,
   }) {
-    return addToFavourite?.call(this);
+    return getFavourite?.call(this);
   }
 
   @override
@@ -647,36 +646,36 @@ class _$AddToFavouritesEventImpl implements AddToFavouritesEvent {
     TResult Function(_Started value)? started,
     TResult Function(GetProductsEvent value)? getProduct,
     TResult Function(AddToCartEvent value)? addToCart,
-    TResult Function(AddToFavouritesEvent value)? addToFavourite,
+    TResult Function(GetFavouritesEvent value)? getFavourite,
     required TResult orElse(),
   }) {
-    if (addToFavourite != null) {
-      return addToFavourite(this);
+    if (getFavourite != null) {
+      return getFavourite(this);
     }
     return orElse();
   }
 }
 
-abstract class AddToFavouritesEvent implements ProductEvent {
-  const factory AddToFavouritesEvent({required final String prodId}) =
-      _$AddToFavouritesEventImpl;
+abstract class GetFavouritesEvent implements ProductEvent {
+  const factory GetFavouritesEvent({final String? prodId}) =
+      _$GetFavouritesEventImpl;
 
-  String get prodId;
+  String? get prodId;
 
   /// Create a copy of ProductEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AddToFavouritesEventImplCopyWith<_$AddToFavouritesEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GetFavouritesEventImplCopyWith<_$GetFavouritesEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$ProductState {
   RequestState get getProductsState => throw _privateConstructorUsedError;
   RequestState get addToCartState => throw _privateConstructorUsedError;
-  RequestState get addToFavouriteState => throw _privateConstructorUsedError;
+  RequestState get getFavouriteState => throw _privateConstructorUsedError;
   ProductModel? get model => throw _privateConstructorUsedError;
-  ProductModel? get favouritemodel => throw _privateConstructorUsedError;
+  FavouriteModel? get favouritemodel => throw _privateConstructorUsedError;
   CartModel? get cartModel => throw _privateConstructorUsedError;
   RouteFailures? get failures => throw _privateConstructorUsedError;
   RouteFailures? get cartFailures => throw _privateConstructorUsedError;
@@ -686,9 +685,9 @@ mixin _$ProductState {
     required TResult Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
@@ -701,9 +700,9 @@ mixin _$ProductState {
     TResult? Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
@@ -716,9 +715,9 @@ mixin _$ProductState {
     TResult Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
@@ -760,9 +759,9 @@ abstract class $ProductStateCopyWith<$Res> {
   $Res call(
       {RequestState getProductsState,
       RequestState addToCartState,
-      RequestState addToFavouriteState,
+      RequestState getFavouriteState,
       ProductModel? model,
-      ProductModel? favouritemodel,
+      FavouriteModel? favouritemodel,
       CartModel? cartModel,
       RouteFailures? failures,
       RouteFailures? cartFailures,
@@ -786,7 +785,7 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
   $Res call({
     Object? getProductsState = null,
     Object? addToCartState = null,
-    Object? addToFavouriteState = null,
+    Object? getFavouriteState = null,
     Object? model = freezed,
     Object? favouritemodel = freezed,
     Object? cartModel = freezed,
@@ -803,9 +802,9 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
           ? _value.addToCartState
           : addToCartState // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      addToFavouriteState: null == addToFavouriteState
-          ? _value.addToFavouriteState
-          : addToFavouriteState // ignore: cast_nullable_to_non_nullable
+      getFavouriteState: null == getFavouriteState
+          ? _value.getFavouriteState
+          : getFavouriteState // ignore: cast_nullable_to_non_nullable
               as RequestState,
       model: freezed == model
           ? _value.model
@@ -814,7 +813,7 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
       favouritemodel: freezed == favouritemodel
           ? _value.favouritemodel
           : favouritemodel // ignore: cast_nullable_to_non_nullable
-              as ProductModel?,
+              as FavouriteModel?,
       cartModel: freezed == cartModel
           ? _value.cartModel
           : cartModel // ignore: cast_nullable_to_non_nullable
@@ -846,9 +845,9 @@ abstract class _$$InitialImplCopyWith<$Res>
   $Res call(
       {RequestState getProductsState,
       RequestState addToCartState,
-      RequestState addToFavouriteState,
+      RequestState getFavouriteState,
       ProductModel? model,
-      ProductModel? favouritemodel,
+      FavouriteModel? favouritemodel,
       CartModel? cartModel,
       RouteFailures? failures,
       RouteFailures? cartFailures,
@@ -870,7 +869,7 @@ class __$$InitialImplCopyWithImpl<$Res>
   $Res call({
     Object? getProductsState = null,
     Object? addToCartState = null,
-    Object? addToFavouriteState = null,
+    Object? getFavouriteState = null,
     Object? model = freezed,
     Object? favouritemodel = freezed,
     Object? cartModel = freezed,
@@ -887,9 +886,9 @@ class __$$InitialImplCopyWithImpl<$Res>
           ? _value.addToCartState
           : addToCartState // ignore: cast_nullable_to_non_nullable
               as RequestState,
-      addToFavouriteState: null == addToFavouriteState
-          ? _value.addToFavouriteState
-          : addToFavouriteState // ignore: cast_nullable_to_non_nullable
+      getFavouriteState: null == getFavouriteState
+          ? _value.getFavouriteState
+          : getFavouriteState // ignore: cast_nullable_to_non_nullable
               as RequestState,
       model: freezed == model
           ? _value.model
@@ -898,7 +897,7 @@ class __$$InitialImplCopyWithImpl<$Res>
       favouritemodel: freezed == favouritemodel
           ? _value.favouritemodel
           : favouritemodel // ignore: cast_nullable_to_non_nullable
-              as ProductModel?,
+              as FavouriteModel?,
       cartModel: freezed == cartModel
           ? _value.cartModel
           : cartModel // ignore: cast_nullable_to_non_nullable
@@ -925,7 +924,7 @@ class _$InitialImpl implements _Initial {
   const _$InitialImpl(
       {this.getProductsState = RequestState.init,
       this.addToCartState = RequestState.init,
-      this.addToFavouriteState = RequestState.init,
+      this.getFavouriteState = RequestState.init,
       this.model,
       this.favouritemodel,
       this.cartModel,
@@ -941,11 +940,11 @@ class _$InitialImpl implements _Initial {
   final RequestState addToCartState;
   @override
   @JsonKey()
-  final RequestState addToFavouriteState;
+  final RequestState getFavouriteState;
   @override
   final ProductModel? model;
   @override
-  final ProductModel? favouritemodel;
+  final FavouriteModel? favouritemodel;
   @override
   final CartModel? cartModel;
   @override
@@ -957,7 +956,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'ProductState.initial(getProductsState: $getProductsState, addToCartState: $addToCartState, addToFavouriteState: $addToFavouriteState, model: $model, favouritemodel: $favouritemodel, cartModel: $cartModel, failures: $failures, cartFailures: $cartFailures, favouriteFailures: $favouriteFailures)';
+    return 'ProductState.initial(getProductsState: $getProductsState, addToCartState: $addToCartState, getFavouriteState: $getFavouriteState, model: $model, favouritemodel: $favouritemodel, cartModel: $cartModel, failures: $failures, cartFailures: $cartFailures, favouriteFailures: $favouriteFailures)';
   }
 
   @override
@@ -969,8 +968,8 @@ class _$InitialImpl implements _Initial {
                 other.getProductsState == getProductsState) &&
             (identical(other.addToCartState, addToCartState) ||
                 other.addToCartState == addToCartState) &&
-            (identical(other.addToFavouriteState, addToFavouriteState) ||
-                other.addToFavouriteState == addToFavouriteState) &&
+            (identical(other.getFavouriteState, getFavouriteState) ||
+                other.getFavouriteState == getFavouriteState) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.favouritemodel, favouritemodel) ||
                 other.favouritemodel == favouritemodel) &&
@@ -989,7 +988,7 @@ class _$InitialImpl implements _Initial {
       runtimeType,
       getProductsState,
       addToCartState,
-      addToFavouriteState,
+      getFavouriteState,
       model,
       favouritemodel,
       cartModel,
@@ -1011,16 +1010,16 @@ class _$InitialImpl implements _Initial {
     required TResult Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
             RouteFailures? favouriteFailures)
         initial,
   }) {
-    return initial(getProductsState, addToCartState, addToFavouriteState, model,
+    return initial(getProductsState, addToCartState, getFavouriteState, model,
         favouritemodel, cartModel, failures, cartFailures, favouriteFailures);
   }
 
@@ -1030,9 +1029,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
@@ -1042,7 +1041,7 @@ class _$InitialImpl implements _Initial {
     return initial?.call(
         getProductsState,
         addToCartState,
-        addToFavouriteState,
+        getFavouriteState,
         model,
         favouritemodel,
         cartModel,
@@ -1057,9 +1056,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(
             RequestState getProductsState,
             RequestState addToCartState,
-            RequestState addToFavouriteState,
+            RequestState getFavouriteState,
             ProductModel? model,
-            ProductModel? favouritemodel,
+            FavouriteModel? favouritemodel,
             CartModel? cartModel,
             RouteFailures? failures,
             RouteFailures? cartFailures,
@@ -1068,16 +1067,8 @@ class _$InitialImpl implements _Initial {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(
-          getProductsState,
-          addToCartState,
-          addToFavouriteState,
-          model,
-          favouritemodel,
-          cartModel,
-          failures,
-          cartFailures,
-          favouriteFailures);
+      return initial(getProductsState, addToCartState, getFavouriteState, model,
+          favouritemodel, cartModel, failures, cartFailures, favouriteFailures);
     }
     return orElse();
   }
@@ -1115,9 +1106,9 @@ abstract class _Initial implements ProductState {
   const factory _Initial(
       {final RequestState getProductsState,
       final RequestState addToCartState,
-      final RequestState addToFavouriteState,
+      final RequestState getFavouriteState,
       final ProductModel? model,
-      final ProductModel? favouritemodel,
+      final FavouriteModel? favouritemodel,
       final CartModel? cartModel,
       final RouteFailures? failures,
       final RouteFailures? cartFailures,
@@ -1128,11 +1119,11 @@ abstract class _Initial implements ProductState {
   @override
   RequestState get addToCartState;
   @override
-  RequestState get addToFavouriteState;
+  RequestState get getFavouriteState;
   @override
   ProductModel? get model;
   @override
-  ProductModel? get favouritemodel;
+  FavouriteModel? get favouritemodel;
   @override
   CartModel? get cartModel;
   @override

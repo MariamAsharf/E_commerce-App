@@ -14,16 +14,16 @@ class CategoriesTab extends StatelessWidget {
     return BlocProvider(
       create: (context) =>
           getIt<CategoriesBloc>()..add(const CategoriesGetCategoriesEvent()),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
             horizontal: AppPadding.p12, vertical: AppPadding.p12),
         child: Row(
           children: [
-            CategoriesList(),
-            SizedBox(
+             CategoriesList(index: 0),
+            const SizedBox(
               width: AppSize.s16,
             ),
-            SubCategoriesList()
+            SubCategoriesList(),
           ],
         ),
       ),

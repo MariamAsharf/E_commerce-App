@@ -6,7 +6,9 @@ import 'package:eCommerce_app/core/routes_manager/routes.dart';
 import 'package:eCommerce_app/core/widget/heart_button.dart';
 import 'package:eCommerce_app/features/main_layout/favourite/presentation/widgets/add_to_cart_button.dart';
 import 'package:eCommerce_app/features/main_layout/favourite/presentation/widgets/favourite_item_details.dart';
+import 'package:eCommerce_app/features/products_screen/presentation/bloc/product_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FavoriteItem extends StatelessWidget {
@@ -14,12 +16,13 @@ class FavoriteItem extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.title,
-
+    required this.id,
     required this.price,
   });
 
   final String imagePath;
   final String title;
+  final String id;
 
   final int price;
 
@@ -74,18 +77,22 @@ class FavoriteItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                HeartButton(onTap: () {
-                  //TODO:remove product from wish list
-                }),
+                HeartButton(
+                  onTap: () {
+                    BlocProvider.of<ProductBloc>(context)
+                        .add(GetFavouritesEvent(prodId: id));
+                  },
+                ),
                 SizedBox(height: AppSize.s14.h),
                 AddToCartButton(
                   onPressed: () {
-                    //TODO:add product to cart
+                    BlocProvider.of<ProductBloc>(context)
+                        .add(AddToCartEvent(prodId: id));
                   },
                   text: AppConstants.addToCart,
-                )
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),

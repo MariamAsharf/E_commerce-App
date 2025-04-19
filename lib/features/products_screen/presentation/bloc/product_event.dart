@@ -8,6 +8,7 @@ class ProductEvent with _$ProductEvent {
 
   const factory ProductEvent.addToCart({required String prodId}) =
       AddToCartEvent;
-  const factory ProductEvent.addToFavourite({required String prodId}) =
-  AddToFavouritesEvent;
+
+  const factory ProductEvent.getFavourite({String? prodId}) =
+      GetFavouritesEvent;
 }

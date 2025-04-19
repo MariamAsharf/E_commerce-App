@@ -11,15 +11,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'sub_category_item.dart';
 
 class SubCategoriesList extends StatelessWidget {
-  const SubCategoriesList({super.key});
+  SubCategoriesList({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CategoriesBloc, CategoriesState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
+        final selectedIndex = state.selectedIndex;
+
         return Expanded(
           flex: 2,
           child: CustomScrollView(
@@ -27,7 +27,7 @@ class SubCategoriesList extends StatelessWidget {
               // category title
               SliverToBoxAdapter(
                 child: Text(
-                  'Laptops & Electronics',
+                  state.model?.data?[selectedIndex].name ?? "",
                   style: getBoldStyle(
                       color: ColorManager.primary, fontSize: FontSize.s14),
                 ),
@@ -35,18 +35,19 @@ class SubCategoriesList extends StatelessWidget {
               // the category card
               SliverToBoxAdapter(
                 child: CategoryCardItem(
-                    "Laptops & Electronics",
-                    ImageAssets.categoryCardImage,
+                    state.model?.data?[selectedIndex].name ?? "",
+                    state.model?.data?[selectedIndex].image ?? "",
                     goToCategoryProductsListScreen),
               ),
               // the grid view of the subcategories
               SliverGrid(
                   delegate: SliverChildBuilderDelegate(
                     childCount: state.subModel?.data?.length,
-                    (context, index) => SubCategoryItem(
-                        state.subModel?.data?[index].name ?? "",
-                        ImageAssets.subcategoryCardImage,
-                        goToCategoryProductsListScreen),
+                        (context, index) =>
+                        SubCategoryItem(
+                            state.subModel?.data?[index].name ?? "",
+                            state.model?.data?[selectedIndex].image ?? "",
+                            goToCategoryProductsListScreen),
                   ),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,

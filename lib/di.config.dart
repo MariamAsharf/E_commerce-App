@@ -29,8 +29,6 @@ import 'features/cart/domain/usecases/get_cart_use_case.dart' as _i509;
 import 'features/cart/presentation/bloc/cart_bloc.dart' as _i239;
 import 'features/main_layout/categories/presentation/bloc/categories_bloc.dart'
     as _i943;
-import 'features/main_layout/favourite/presentation/bloc/favourite_bloc.dart'
-    as _i759;
 import 'features/main_layout/home/data/datasources/remote/home_remote_ds.dart'
     as _i150;
 import 'features/main_layout/home/data/datasources/remote/home_remote_ds_impl.dart'
@@ -102,25 +100,23 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i781.AddToCartUseCase(gh<_i850.ProductRepo>()));
     gh.factory<_i499.GetProductsUseCase>(
         () => _i499.GetProductsUseCase(gh<_i850.ProductRepo>()));
-    gh.factory<_i1015.AddToFavouriteUseCase>(
-        () => _i1015.AddToFavouriteUseCase(gh<_i850.ProductRepo>()));
-    gh.factory<_i123.HomeBloc>(() => _i123.HomeBloc(
-          gh<_i716.GetCategoriesUseCase>(),
-          gh<_i509.GetCartUseCase>(),
-          gh<_i1015.AddToFavouriteUseCase>(),
-        ));
+    gh.factory<_i1015.GetFavouriteUseCase>(
+        () => _i1015.GetFavouriteUseCase(gh<_i850.ProductRepo>()));
     gh.factory<_i363.AuthBloc>(() => _i363.AuthBloc(
           gh<_i261.SignUpUseCase>(),
           gh<_i206.LoginUseCase>(),
           gh<_i723.GetProfileUseCase>(),
         ));
+    gh.factory<_i123.HomeBloc>(() => _i123.HomeBloc(
+          gh<_i716.GetCategoriesUseCase>(),
+          gh<_i509.GetCartUseCase>(),
+          gh<_i1015.GetFavouriteUseCase>(),
+        ));
     gh.factory<_i477.ProductBloc>(() => _i477.ProductBloc(
           gh<_i499.GetProductsUseCase>(),
           gh<_i781.AddToCartUseCase>(),
-          gh<_i1015.AddToFavouriteUseCase>(),
+          gh<_i1015.GetFavouriteUseCase>(),
         ));
-    gh.factory<_i759.FavouriteBloc>(
-        () => _i759.FavouriteBloc(gh<_i1015.AddToFavouriteUseCase>()));
     return this;
   }
 }

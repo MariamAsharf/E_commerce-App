@@ -2,8 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:eCommerce_app/core/failuers/failuers.dart';
 import 'package:eCommerce_app/core/failuers/remote_failuers.dart';
 import 'package:eCommerce_app/features/products_screen/data/datasource/product_ds.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/ProductModel.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/cart_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/favourite_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/product_model.dart';
 import 'package:eCommerce_app/features/products_screen/domain/repository/products_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -38,7 +39,7 @@ class ProductRepoImpl implements ProductRepo {
   }
 
   @override
-  Future<Either<RouteFailures, ProductModel>> addToFavourite(
+  Future<Either<RouteFailures, FavouriteModel>> getFavourite(
       {String? prodId}) async {
     try {
       var result = await productDS.addToFavourite(id: prodId);
@@ -49,3 +50,4 @@ class ProductRepoImpl implements ProductRepo {
     }
   }
 }
+

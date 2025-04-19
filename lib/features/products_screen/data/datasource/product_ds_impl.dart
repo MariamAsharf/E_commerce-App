@@ -2,8 +2,9 @@ import 'package:eCommerce_app/core/api/api_manager.dart';
 import 'package:eCommerce_app/core/resources/chace_helper.dart';
 import 'package:eCommerce_app/core/resources/endpoints.dart';
 import 'package:eCommerce_app/features/products_screen/data/datasource/product_ds.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/CartModel.dart';
-import 'package:eCommerce_app/features/products_screen/data/models/ProductModel.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/cart_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/favourite_model.dart';
+import 'package:eCommerce_app/features/products_screen/data/models/product_model.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: ProductDS)
@@ -45,7 +46,7 @@ class ProductDSImpl implements ProductDS {
   }
 
   @override
-  Future<ProductModel> addToFavourite({String? id}) async{
+  Future<FavouriteModel> addToFavourite({String? id}) async{
     try {
       var token = SharedPrefs.get("token");
       var response = await apiManager.postRequest(EndPoints.favourite, {
@@ -54,8 +55,8 @@ class ProductDSImpl implements ProductDS {
         "token": token,
       });
 
-      ProductModel productModel = ProductModel.fromJson(response.data);
-      return productModel;
+      FavouriteModel favouriteModel = FavouriteModel.fromJson(response.data);
+      return favouriteModel;
     } catch (e) {
       print("error $e");
       rethrow;

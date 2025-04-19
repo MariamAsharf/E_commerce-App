@@ -1,8 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:eCommerce_app/core/resources/color_manager.dart';
 import 'package:eCommerce_app/core/resources/font_manager.dart';
 import 'package:eCommerce_app/core/resources/styles_manager.dart';
 import 'package:eCommerce_app/core/resources/values_manager.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,10 +25,14 @@ class CategoryCardItem extends StatelessWidget {
         child: Stack(
           children: [
             // Background image for the category
-            Image.asset(
-              image,
+            CachedNetworkImage(
+              imageUrl: image,
               fit: BoxFit.cover,
               width: double.infinity,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(),
+              ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
             // Overlay with category title and button
             Positioned.fill(
@@ -56,7 +60,9 @@ class CategoryCardItem extends StatelessWidget {
                         width: 110.w,
                         height: 35.h,
                         child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+
+                            },
                             style: ElevatedButton.styleFrom(
                                 fixedSize: Size(120.w, 30.h),
                                 padding: EdgeInsets.symmetric(
